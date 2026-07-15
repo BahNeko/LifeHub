@@ -22,6 +22,12 @@ def carregar_tela(nome):
     print('=' * 40)
     input()
 
+def validacao_opcao(opcao_digitada, opcoes_validas):
+    while opcao_digitada not in opcoes_validas:
+        print('Opção Inválida!')
+        opcao_digitada = input('Tente digitar novamente: ').strip()
+    return opcao_digitada
+
 
 # Código Principal - Criando o Menu de Interações
 
@@ -44,13 +50,7 @@ while True:
     op = str(input('Escolha uma opção: ')).strip()
     print('='*40)
 
-# Validando se a opção está dentro do menu de interações
-
-    if op not in ['1', '2', '3', '4', '5', '6']:
-        print('''Opção Inválida!
-Pressione ENTER para continuar...''')
-        input()
-        continue
+    op = validacao_opcao(op, ['1', '2', '3', '4', '5', '6'])
 
 # Menu - Controle Financeiro
 
@@ -69,12 +69,7 @@ Pressione ENTER para continuar...''')
             op2 = str(input('Escolha uma opção: ')).strip()
             print('='*52)
 
-# Segunda validação para a opção estar dentro do menu de interações
-
-            while op2 not in ['1', '2', '3', '4', '5']:
-                print('''Opção Inválida!
-Tente digitar novamente''')
-                op2 = str(input('Escolha uma opção: ')).strip()
+            op2 = validacao_opcao(op2, ['1', '2', '3', '4', '5'])
 
 # Cadastro de Receita
 

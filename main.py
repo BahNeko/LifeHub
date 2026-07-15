@@ -1,5 +1,10 @@
 from time import sleep
 
+# Listas e Dicionários para Armazenar Dados - Controle Financeiro
+
+receitas = []
+gastos = []
+
 # Funções do Código
 
 def cabecalho(nome, descricao):
@@ -47,11 +52,43 @@ Pressione ENTER para continuar...''')
         input()
         continue
 
-# Iniciando as telas selecionadas no menu de interações
+# Menu - Controle Financeiro
 
     if op == '1':
-        cabecalho('💵CONTROLE FINANCEIRO💵', 'o seu espaço com seu dinheirinho')
+        while True:
+            cabecalho('💵CONTROLE FINANCEIRO💵', 'o seu espaço com seu dinheirinho')
+            print()
+            print('''[1] Cadastrar Receita
+[2] Cadastrar Gasto
+[3] Calcular Saldo
+[4] Mostrar Histórico
+[5] Voltar''')
+            print()
+            print('='*40)
 
+            op2 = str(input('Escolha uma opção: ')).strip()
+            print('='*52)
+
+# Segunda validação para a opção estar dentro do menu de interações
+
+            while op2 not in ['1', '2', '3', '4', '5']:
+                print('''Opção Inválida!
+Tente digitar novamente''')
+                op2 = str(input('Escolha uma opção: ')).strip()
+
+# Cadastro de Receita
+
+            if op2 == '1':
+                receita = float(input('Digite o valor que deseja inserir na receita: R$'))
+                receitas.append(receita)
+                print('='*52)
+                print('⚙️DEPOSITANDO...'.center(52))
+                sleep(1)
+                print(f'Valor de {receita} depositado com sucesso!✅'.center(53))
+                print('=' * 52)
+
+            if op2 == '5':
+                break
 
     elif op == '2':
         carregar_tela('Wishlist')

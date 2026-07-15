@@ -28,6 +28,19 @@ def validacao_opcao(opcao_digitada, opcoes_validas):
         opcao_digitada = input('Tente digitar novamente: ').strip()
     return opcao_digitada
 
+def cadastrar_valores(nome_sessao, lista, carregando, descricao):
+    valor = float(input(f'Digite o valor que deseja inserir na sessão de {nome_sessao}: R$'))
+    lista.append(valor)
+    print('=' * 52)
+    print(f'⚙️{carregando}...'.center(52))
+    print('=' * 52)
+    sleep(1)
+    print()
+    print(f'{descricao} com sucesso!✅')
+    print()
+    print(f'Valor: R${valor}')
+    print()
+    print('=' * 52)
 
 # Código Principal - Criando o Menu de Interações
 
@@ -74,13 +87,12 @@ while True:
 # Cadastro de Receita
 
             if op2 == '1':
-                receita = float(input('Digite o valor que deseja inserir na receita: R$'))
-                receitas.append(receita)
-                print('='*52)
-                print('⚙️DEPOSITANDO...'.center(52))
-                sleep(1)
-                print(f'Valor de {receita} depositado com sucesso!✅'.center(53))
-                print('=' * 52)
+               cadastrar_valores('Receita', receitas, 'DEPOSITANDO', 'Depositado')
+
+# Cadastro de Gastos
+
+            if op2 == '2':
+                cadastrar_valores('Gastos', gastos, 'REGISTRANDO GASTOS', 'Registrado')
 
             if op2 == '5':
                 break

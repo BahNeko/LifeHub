@@ -42,6 +42,26 @@ def cadastrar_valores(nome_sessao, lista, carregando, descricao):
     print()
     print('=' * 52)
 
+def calculo_financeiro(receitas, gastos):
+    total_receitas = sum(receitas)
+    total_gastos = sum(gastos)
+    saldo = total_receitas - total_gastos
+    return total_receitas, total_gastos, saldo
+
+def mostrar_lista_valores(titulo, lista, simbolo):
+    print()
+    print(titulo)
+    print()
+    if not lista:
+       print('Nenhum registro encontrado.')
+       print()
+    else:
+        for valor in lista:
+            print(f'{simbolo} R${valor:.2f}')
+    print()
+    print('-' * 40)
+    print()
+
 # Código Principal - Criando o Menu de Interações
 
 while True:
@@ -87,22 +107,37 @@ while True:
 # Cadastro de Receita
 
             if op2 == '1':
-               cadastrar_valores('Receita', receitas, 'DEPOSITANDO', 'Depositado')
+               cadastrar_valores('Receita', receitas, 'DEPOSITANDO', 'Receita cadastrada')
 
 # Cadastro de Gastos
 
             elif op2 == '2':
                 cadastrar_valores('Gastos', gastos, 'REGISTRANDO GASTOS', 'Registrado')
 
+# Cálculo de Saldo
+
             elif op2 == '3':
-                total_receita = sum(receitas)
-                total_gasto = sum(gastos)
-                saldo = total_receita - total_gasto
+                total_receitas, total_gastos, saldo = calculo_financeiro(receitas, gastos)
                 cabecalho('💰SALDO ATUAL💰', 'resumo das suas finanças' )
                 print()
-                print(f'Total de receitas: R${total_receita:.2f}')
+                print(f'Total de receitas: R${total_receitas:.2f}')
                 print()
-                print(f'Total de gastos: R${total_gasto:.2f}')
+                print(f'Total de gastos: R${total_gastos:.2f}')
+                print()
+                print(f'Saldo atual: R${saldo:.2f}')
+                print()
+                print('=' * 40)
+                input('Pressione ENTER para voltar ao menu...')
+
+            elif op2 == '4':
+                total_receitas, total_gastos, saldo = calculo_financeiro(receitas, gastos)
+                cabecalho('📜HISTÓRICO FINANCEIRO📜', 'todas as suas movimentações')
+                mostrar_lista_valores('💵RECEITAS', receitas, '+')
+                mostrar_lista_valores('💸GASTOS', gastos, '-')
+                print('📊RESUMO')
+                print()
+                print(f'Total de receitas: R${total_receitas:.2f}')
+                print(f'Total de gastos: R${total_gastos:.2f}')
                 print()
                 print(f'Saldo atual: R${saldo:.2f}')
                 print()

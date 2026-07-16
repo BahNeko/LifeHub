@@ -1,6 +1,6 @@
 from time import sleep
 
-# Listas e Dicionários para Armazenar Dados - Controle Financeiro
+# Listas para Armazenar Dados - Controle Financeiro
 
 receitas = []
 gastos = []
@@ -38,7 +38,7 @@ def cadastrar_valores(nome_sessao, lista, carregando, descricao):
     print()
     print(f'{descricao} com sucesso!✅')
     print()
-    print(f'Valor: R${valor}')
+    print(f'Valor: R${valor:.2f}')
     print()
     print('=' * 52)
 
@@ -91,10 +91,25 @@ while True:
 
 # Cadastro de Gastos
 
-            if op2 == '2':
+            elif op2 == '2':
                 cadastrar_valores('Gastos', gastos, 'REGISTRANDO GASTOS', 'Registrado')
 
-            if op2 == '5':
+            elif op2 == '3':
+                total_receita = sum(receitas)
+                total_gasto = sum(gastos)
+                saldo = total_receita - total_gasto
+                cabecalho('💰SALDO ATUAL💰', 'resumo das suas finanças' )
+                print()
+                print(f'Total de receitas: R${total_receita:.2f}')
+                print()
+                print(f'Total de gastos: R${total_gasto:.2f}')
+                print()
+                print(f'Saldo atual: R${saldo:.2f}')
+                print()
+                print('=' * 40)
+                input('Pressione ENTER para voltar ao menu...')
+
+            elif op2 == '5':
                 break
 
     elif op == '2':

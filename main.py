@@ -5,28 +5,27 @@ from funcoes import *
 receitas = []
 gastos = []
 
+# Lista e para Armazenar Dados - WishList
+
+wishlist = []
+
 # Código Principal - Criando o Menu de Interações
 
 while True:
-    print('='*40)
-    print('⭐LIFEHUB⭐'.center(35))
-    print('o seu sistema de organização pessoal'.center(40))
-    print('='*40)
+    cabecalho('⭐LIFEHUB⭐', 'o seu sistema de organização pessoal')
     print()
-
     print('''[1] Controle Financeiro
 [2] WishList
 [3] Skincare
-[4] Receitas de Comida
-[5] Metas
-[6] Sair''')
+[4] Metas
+[5] Sair''')
     print()
     print('='*40)
 
     op = str(input('Escolha uma opção: ')).strip()
     print('='*40)
 
-    op = validacao_opcao(op, ['1', '2', '3', '4', '5', '6'])
+    op = validacao_opcao(op, ['1', '2', '3', '4', '5',])
 
 # Menu - Controle Financeiro
 
@@ -91,18 +90,52 @@ while True:
                 break
 
     elif op == '2':
-        carregar_tela('Wishlist')
+        while True:
+            cabecalho('🎁WISHLIST🎁', 'seus desejos e objetivos')
+            print()
+            print('''[1] Adicionar item
+[2] Ver Wishlist
+[3] Remover item
+[4] Marcar como comprado
+[5] Voltar''')
+            print()
+            print('=' * 40)
+
+            op3 = str(input('Escolha uma opção ')).strip()
+
+            op3 = validacao_opcao(op3, ['1', '2', '3', '4', '5'])
+
+            if op3 == '1':
+                item = {}
+
+                print('='*40)
+                print('''Para seguirmos com o registro do novo item,
+preciso que responda esse pequeno formulário a seguir''')
+                print('='*60)
+                sleep(1)
+
+                item['nome']=str(input('Nome do Item: ')).strip()
+                item['categoria']=str(input('Categoria do Item: ')).strip()
+                item['preco']=float(input('Preço do Item (apenas números, por gentileza): R$'))
+                item['status']= 'Pendente'
+                wishlist.append(item)
+
+                print('='*40)
+                print('⚙️REGISTRANDO...'.center(40))
+                print('=' * 40)
+                sleep(1.5)
+                print('Registrado com sucesso!✅')
+
+            elif op3 == '5':
+                break
 
     elif op == '3':
         carregar_tela('Skincare')
 
     elif op == '4':
-        carregar_tela('Receitas de Comida')
-
-    elif op == '5':
         carregar_tela('Metas')
 
-    elif op == '6':
+    elif op == '5':
         print()
         print('Obrigada por desfrutar do LifeHub💖'.center(40))
         print('volte sempre!'.center(35))

@@ -148,6 +148,38 @@ preciso que responda esse pequeno formulário a seguir''')
                 print('=' * 40)
                 input('Pressione ENTER para voltar...')
 
+            elif op3 == '3':
+                cabecalho('🗑️REMOVER ITEM🗑️', 'metas alcançadas')
+                print()
+
+                if not wishlist:
+                    print('Nenhum item cadastrado.')
+                    print()
+                    print('='*40)
+                    input('Pressione ENTER para voltar...')
+
+                else:
+                    for i, item in enumerate(wishlist, start=1):
+                        print(f'{i}. {item["nome"]}')
+
+                    print()
+                    print('-'*40)
+                    opc = int(input('Digite o número do item que deseja remover: '))
+
+                    while opc < 1 or opc > len(wishlist):
+                        print('Opção Inválida! Tente novamente...')
+                        opc = int(input('Digite o número do item que deseja remover: '))
+
+                    print('='*40)
+                    print(f'⚙️REMOVENDO...'.center(40))
+                    print('='*40)
+                    item_removido = wishlist.pop(opc - 1)
+
+                    sleep(1.5)
+                    print(f'Item "{item_removido["nome"]}" removido com sucesso! ✅')
+                    input('Pressione ENTER para voltar...')
+
+
             elif op3 == '5':
                 break
 

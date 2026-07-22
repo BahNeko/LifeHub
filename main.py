@@ -126,6 +126,28 @@ preciso que responda esse pequeno formulário a seguir''')
                 sleep(1.5)
                 print('Registrado com sucesso!✅')
 
+            elif op3 == '2':
+                cabecalho('🎁WISHLIST🎁', 'seus desejos e objetivos')
+                print()
+
+                if not wishlist:
+                    print('Nenhum item cadastrado.')
+
+                else:
+                    for i, item in enumerate(wishlist, start=1):
+                        print(f'{i}.')
+                        print(f'Nome: {item["nome"]}')
+                        print(f'Categoria: {item["categoria"]}')
+                        print(f'Preço: R$ {item["preco"]:.2f}')
+                        print(f'Status: {item["status"]}')
+                        print()
+                        print('-'*40)
+                        print()
+
+                print()
+                print('=' * 40)
+                input('Pressione ENTER para voltar...')
+
             elif op3 == '5':
                 break
 

@@ -71,6 +71,8 @@ while True:
                 print('=' * 40)
                 input('Pressione ENTER para voltar ao menu...')
 
+# Histórico Financeiro - Total de Receitas, Gastos e Saldo Atual
+
             elif op2 == '4':
                 total_receitas, total_gastos, saldo = calculo_financeiro(receitas, gastos)
                 cabecalho('📜HISTÓRICO FINANCEIRO📜', 'todas as suas movimentações')
@@ -89,6 +91,8 @@ while True:
             elif op2 == '5':
                 break
 
+# Menu - WishList
+
     elif op == '2':
         while True:
             cabecalho('🎁WISHLIST🎁', 'seus desejos e objetivos')
@@ -104,6 +108,8 @@ while True:
             op3 = str(input('Escolha uma opção: ')).strip()
 
             op3 = validacao_opcao(op3, ['1', '2', '3', '4', '5'])
+
+# Registrando um Item na WishList
 
             if op3 == '1':
                 item = {}
@@ -126,93 +132,73 @@ preciso que responda esse pequeno formulário a seguir''')
                 sleep(1.5)
                 print('Registrado com sucesso!✅')
 
+# Mostrar a WishList na Tela
+
             elif op3 == '2':
                 cabecalho('🎁WISHLIST🎁', 'seus desejos e objetivos')
                 print()
 
-                if not wishlist:
-                    print('Nenhum item cadastrado.')
+                if verificar_lista_vazia(wishlist):
+                    continue
 
-                else:
-                    for i, item in enumerate(wishlist, start=1):
-                        print(f'{i}.')
-                        print(f'Nome: {item["nome"]}')
-                        print(f'Categoria: {item["categoria"]}')
-                        print(f'Preço: R$ {item["preco"]:.2f}')
-                        print(f'Status: {item["status"]}')
-                        print()
-                        print('-'*40)
-                        print()
+                mostrar_detalhes_wishlist(wishlist)
 
                 print()
                 print('=' * 40)
                 input('Pressione ENTER para voltar...')
 
+# Removendo Itens da WishList
+
             elif op3 == '3':
                 cabecalho('🗑️REMOVER ITEM🗑️', 'metas alcançadas')
                 print()
 
-                if not wishlist:
-                    print('Nenhum item cadastrado.')
-                    print()
-                    print('='*40)
-                    input('Pressione ENTER para voltar...')
+                if verificar_lista_vazia(wishlist):
+                    continue
 
-                else:
-                    for i, item in enumerate(wishlist, start=1):
-                        print(f'{i}. {item["nome"]}')
+                mostrar_itens_wishlist(wishlist)
 
-                    print()
-                    print('-'*40)
-                    opc = int(input('Digite o número do item que deseja remover: '))
+                opc = int(input('Digite o número do item que deseja remover: '))
 
-                    while opc < 1 or opc > len(wishlist):
-                        print('Opção Inválida! Tente novamente...')
-                        opc = int(input('Digite o número do item que deseja remover: '))
+                opc = validar_item_escolhido(opc, wishlist, 'Digite novamente a sua opção: ')
 
-                    print('='*40)
-                    print(f'⚙️REMOVENDO...'.center(40))
-                    print('='*40)
-                    item_removido = wishlist.pop(opc - 1)
+                print('='*40)
+                print(f'⚙️REMOVENDO...'.center(40))
+                print('='*40)
+                item_removido = wishlist.pop(opc - 1)
 
-                    sleep(1.5)
-                    print(f'Item "{item_removido["nome"]}" removido com sucesso! ✅')
-                    input('Pressione ENTER para voltar...')
+                sleep(1.5)
+                print(f'Item "{item_removido["nome"]}" removido com sucesso! ✅')
+                input('Pressione ENTER para voltar...')
+
+# Marcar Como Comprado/Check na WishList
 
             elif op3 == '4':
                 cabecalho('✅MARCAR COMO COMPRADO✅', 'comprinhas realizadas')
                 print()
 
-                if not wishlist:
-                    print('Nenhum item cadastrado.')
-                    print('='*40)
-                    print()
+                if verificar_lista_vazia(wishlist):
+                    continue
+                
+                mostrar_itens_wishlist(wishlist)
+                opc2 = int(input('Escolha sua opção: '))
+
+                opc2 = validar_item_escolhido(opc2, wishlist, 'Digite novamente a sua opção: ')
+
+                if wishlist[opc2 - 1]['status'] == 'Comprado':
+                    print('Esse item já está marcado como comprado!')
                     input('Pressione ENTER para voltar...')
 
                 else:
-                    for i, item, in enumerate(wishlist, start=1):
-                        print(f'{i}. {item["nome"]} - {item["status"]}')
-                    print()
                     print('='*40)
-                    opc2 = int(input('Escolha sua opção: '))
+                    print(f'⚙️ALTERANDO STATUS...'.center(40))
+                    print('='*40)
 
-                    while opc2 < 1 or opc2 > len(wishlist):
-                        print('Opção Inválida! Tente novamente...')
-                        opc2 = int(input('Digite novamente a opção desejada: '))
-                    if wishlist[opc2 - 1]['status'] == 'Comprado':
-                        print('Esse item já está marcado como comprado!')
-                        input('Pressione ENTER para voltar...')
+                    wishlist[opc2 - 1]['status'] = 'Comprado'
+                    sleep(1.5)
 
-                    else:
-                        print('='*40)
-                        print(f'⚙️ALTERANDO STATUS...'.center(40))
-                        print('='*40)
-
-                        wishlist[opc2 - 1]['status'] = 'Comprado'
-                        sleep(1.5)
-
-                        print(f'Item {wishlist[opc2 - 1]["nome"]} marcado como comprado! ✅')
-                        input('Pressione ENTER para voltar...')
+                    print(f'Item {wishlist[opc2 - 1]["nome"]} marcado como comprado! ✅')
+                    input('Pressione ENTER para voltar...')
 
             elif op3 == '5':
                 break

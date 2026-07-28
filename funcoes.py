@@ -66,3 +66,43 @@ def mostrar_lista_valores(titulo, lista, simbolo):
     print()
     print('-' * 40)
     print()
+
+# Validação de Lista Vazia - Wishlist
+
+def verificar_lista_vazia(lista):
+    if not lista:
+        print('Nenhum item cadastrado.')
+        print('=' * 40)
+        print()
+        input('Pressione ENTER para voltar...')
+        return True
+
+    return False
+
+# Listando a WishList
+
+def mostrar_itens_wishlist(lista):
+    for i, item, in enumerate(lista, start=1):
+        print(f'{i}. {item["nome"]} - {item["status"]}')
+    print()
+    print('=' * 40)
+
+# Listando a WishList de Forma Detalhada
+
+def mostrar_detalhes_wishlist(lista):
+    for i, item in enumerate(lista, start=1):
+        print(f'{i}. {item["nome"]}')
+        print(f'Categoria: {item["categoria"]}')
+        print(f'Preço: R$ {item["preco"]:.2f}')
+        print(f'Status: {item["status"]}')
+        print()
+        print('-' * 40)
+        print()
+
+# Validando a Opção na WishList
+
+def validar_item_escolhido(opc, lista, mensagem):
+    while opc < 1 or opc > len(lista):
+        print('Opção Inválida! Tente novamente...')
+        opc = int(input(mensagem))
+    return opc

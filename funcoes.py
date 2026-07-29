@@ -106,3 +106,15 @@ def validar_item_escolhido(opc, lista, mensagem):
         print('Opção Inválida! Tente novamente...')
         opc = int(input(mensagem))
     return opc
+
+def menu(titulo, descricao, opcoes, opcoes_validas):
+        cabecalho(titulo, descricao)
+        print()
+
+        for opcao in opcoes:
+            print(opcao)
+        print()
+        print('=' * 40)
+
+        op3 = str(input('Escolha uma opção: ')).strip()
+        return validacao_opcao(op3, opcoes_validas)

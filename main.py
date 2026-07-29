@@ -12,39 +12,35 @@ wishlist = []
 # Código Principal - Criando o Menu de Interações
 
 while True:
-    cabecalho('⭐LIFEHUB⭐', 'o seu sistema de organização pessoal')
-    print()
-    print('''[1] Controle Financeiro
-[2] WishList
-[3] Skincare
-[4] Metas
-[5] Sair''')
-    print()
-    print('='*40)
-
-    op = str(input('Escolha uma opção: ')).strip()
-    print('='*40)
-
-    op = validacao_opcao(op, ['1', '2', '3', '4', '5',])
+    op = menu(
+        '⭐LIFEHUB⭐',
+        'o seu sistema de organização pessoal',
+        [
+    '[1] Controle Financeiro',
+    '[2] WishList',
+    '[3] Skincare',
+    '[4] Metas',
+    '[5] Sair'
+    ],
+    ['1', '2', '3', '4', '5']
+    )
 
 # Menu - Controle Financeiro
 
     if op == '1':
         while True:
-            cabecalho('💵CONTROLE FINANCEIRO💵', 'o seu espaço com seu dinheirinho')
-            print()
-            print('''[1] Cadastrar Receita
-[2] Cadastrar Gasto
-[3] Calcular Saldo
-[4] Mostrar Histórico
-[5] Voltar''')
-            print()
-            print('='*40)
-
-            op2 = str(input('Escolha uma opção: ')).strip()
-            print('='*52)
-
-            op2 = validacao_opcao(op2, ['1', '2', '3', '4', '5'])
+            op2 = menu(
+                '💵CONTROLE FINANCEIRO💵',
+                'o seu espaço com seu dinheirinho',
+                [
+            '[1] Cadastrar Receita',
+            '[2] Cadastrar Gasto',
+            '[3] Calcular Saldo',
+            '[4] Mostrar Histórico',
+            '[5] Voltar',
+            ],
+            ['1', '2', '3', '4', '5'],
+            )
 
 # Cadastro de Receita
 
@@ -95,19 +91,18 @@ while True:
 
     elif op == '2':
         while True:
-            cabecalho('🎁WISHLIST🎁', 'seus desejos e objetivos')
-            print()
-            print('''[1] Adicionar item
-[2] Ver Wishlist
-[3] Remover item
-[4] Marcar como comprado
-[5] Voltar''')
-            print()
-            print('=' * 40)
-
-            op3 = str(input('Escolha uma opção: ')).strip()
-
-            op3 = validacao_opcao(op3, ['1', '2', '3', '4', '5'])
+            op3 = menu(
+                '🎁WISHLIST🎁',
+                'seus desejos e objetivos',
+            [
+                '[1] Adicionar item',
+                '[2] Ver Wishlist',
+                '[3] Remover item',
+                '[4] Marcar como comprado',
+                '[5] Voltar'
+            ],
+['1', '2', '3', '4', '5']
+            )
 
 # Registrando um Item na WishList
 

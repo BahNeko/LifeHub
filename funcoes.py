@@ -72,6 +72,7 @@ def mostrar_lista_valores(titulo, lista, simbolo):
 def verificar_lista_vazia(lista):
     if not lista:
         print('Nenhum item cadastrado.')
+        print()
         print('=' * 40)
         print()
         input('Pressione ENTER para voltar...')
@@ -107,6 +108,8 @@ def validar_item_escolhido(opc, lista, mensagem):
         opc = int(input(mensagem))
     return opc
 
+# Menus do Código
+
 def menu(titulo, descricao, opcoes, opcoes_validas):
         cabecalho(titulo, descricao)
         print()
@@ -118,3 +121,23 @@ def menu(titulo, descricao, opcoes, opcoes_validas):
 
         op3 = str(input('Escolha uma opção: ')).strip()
         return validacao_opcao(op3, opcoes_validas)
+
+# Listando a Skincare
+
+def mostrar_detalhes_skincare(lista):
+    for i, produto in enumerate(lista, start=1):
+        print(f'{i}. {produto["nome"]}')
+        print(f'Categoria: {produto["categoria"]}')
+        print(f'Período: {produto["periodo"]}')
+        print(f'Status: {produto["status"]}')
+        print()
+        print('-' * 40)
+        print()
+
+# Mostrando Itens da Lista Skincare
+
+def mostrar_itens_skincare(lista):
+    for i, produto, in enumerate(lista, start=1):
+        print(f'{i}. {produto["nome"]} - {produto["status"]}')
+    print()
+    print('=' * 40)

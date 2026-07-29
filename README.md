@@ -4,7 +4,7 @@ A personal productivity hub developed in Python.
 
 ## About
 
-LifeHub is a personal organization system created to practice Python while applying software development concepts such as modularization, code reuse, data structures and clean project organization.
+LifeHub is a personal organization system created to practice Python programming while applying software development concepts such as modularization, code reuse, data structures and clean project organization.
 
 The project is being developed incrementally, with each module introducing new programming concepts learned throughout my studies.
 
@@ -28,9 +28,16 @@ The project is being developed incrementally, with each module introducing new p
 - Mark items as purchased
 - Track purchase status
 
+#### 🧴 Skincare Management
+
+- Add skincare products
+- View registered products
+- Remove products
+- Track product status
+- Mark products as finished
+
 ### 🚧 Planned
 
-- Skincare management
 - Goals management
 
 ## Technologies
@@ -70,7 +77,7 @@ LifeHub/
 
 - ✅ Financial Control module completed
 - ✅ Wishlist module completed
-- 🚧 Skincare module in development
-- ⏳ Goals module planned
+- ✅ Skincare module completed
+- ⏳ Goals module in development
 
 LifeHub is an educational project that grows as new Python concepts are learned and applied in practice.

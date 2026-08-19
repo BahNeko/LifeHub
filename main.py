@@ -13,6 +13,10 @@ wishlist = []
 
 produtos_skincare = []
 
+# Lista para Armazenar Dados - Metas
+
+metas = []
+
 # Código Principal - Criando o Menu de Interações
 
 while True:
@@ -310,8 +314,66 @@ responda o formulário abaixo: ''')
                     print(f'Produto {produtos_skincare[opc2 - 1]["nome"]} marcado como acabado! ✅')
                     input('Pressione ENTER para voltar...')
 
+            elif op4 == '5':
+                break
+
+# Menu da Sessão de Metas
+
     elif op == '4':
-        carregar_tela('Metas')
+        while True:
+            op5 = menu(
+                '🎯METAS🎯',
+                'um passo de cada vez',
+                [
+                    '[1] Adicionar Meta',
+                    '[2] Ver Metas',
+                    '[3] Atualizar Progresso',
+                    '[4] Remover Meta',
+                    '[5] Voltar'
+                ],
+                ['1', '2', '3', '4', '5'])
+
+# Registrando Metas
+
+            if op5 == '1':
+                meta = {}
+
+                print('=' * 40)
+                print('''Para registrarmos uma nova meta,
+responda o formulário abaixo: ''')
+                print('=' * 60)
+                sleep(1)
+
+                meta['nome'] = input('Meta: ').strip()
+                meta['categoria'] = input('Categoria: ').strip()
+                meta['prazo'] = input('Prazo: ').strip()
+                meta['progresso'] = 0
+                meta['status'] = 'Em Andamento'
+                metas.append(meta)
+
+                print('=' * 40)
+                print('⚙️REGISTRANDO...'.center(40))
+                print('=' * 40)
+                sleep(1.5)
+                print('Registrada com sucesso!✅')
+
+# Mostrando a Lista de Metas
+
+            elif op5 == '2':
+                cabecalho('🎯METAS🎯', 'suas metas em um só lugar')
+                print()
+
+                if verificar_lista_vazia(metas):
+                    continue
+
+                mostrar_metas(metas)
+
+            elif op5 == '5':
+                break
+
+
+
+
 
     elif op == '5':
         print()

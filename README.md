@@ -78,6 +78,6 @@ LifeHub/
 - ✅ Financial Control module completed
 - ✅ Wishlist module completed
 - ✅ Skincare module completed
-- ⏳ Goals module in development
+- ✅ Goals module completed
 
 LifeHub is an educational project that grows as new Python concepts are learned and applied in practice.

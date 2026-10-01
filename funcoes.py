@@ -144,13 +144,19 @@ def mostrar_itens_skincare(lista):
 
 # Listando as Metas
 
-def mostrar_metas(lista):
+def mostrar_metas_detalhadas(lista):
     for m, meta in enumerate(lista, start=1):
         print(f'{m}. {meta["nome"]}')
         print(f'Categoria: {meta["categoria"]}')
         print(f'Prazo: {meta["prazo"]}')
-        print(f'Progresso: {meta["progresso"]}')
+        print(f'Progresso: {meta["progresso"]}%')
         print(f'Status: {meta["status"]}')
         print()
         print('-' * 40)
         print()
+
+def mostrar_metas(lista):
+    for m, meta in enumerate(lista, start=1):
+        print(f'{m}. {meta["nome"]} - {meta["status"]} {meta["progresso"]}%')
+    print()
+    print('=' * 40)

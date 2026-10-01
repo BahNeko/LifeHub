@@ -340,7 +340,7 @@ responda o formulário abaixo: ''')
 
                 print('=' * 40)
                 print('''Para registrarmos uma nova meta,
-responda o formulário abaixo: ''')
+responda o formulário abaixo...''')
                 print('=' * 60)
                 sleep(1)
 
@@ -366,13 +366,50 @@ responda o formulário abaixo: ''')
                 if verificar_lista_vazia(metas):
                     continue
 
+                mostrar_metas_detalhadas(metas)
+
+# Atualizando Progresso da Meta
+
+            elif op5 == '3':
+                cabecalho('⚙️ATUALIZAR PROGRESSO⚙️', 'suas metas indo pra frente')
+                print()
+
+                if verificar_lista_vazia(metas):
+                    continue
+
                 mostrar_metas(metas)
+                opc3 = int(input('Escolha a sua opção: '))
+
+                opc3 = validar_item_escolhido(opc3, metas, 'Digite novamente a meta escolhida: ')
+
+                sleep(0.5)
+                porcentagem_progresso = int(input('Qual a % do seu progresso atualmente?: '))
+
+                while porcentagem_progresso < 0 or porcentagem_progresso > 100:
+                    print('O progresso deve estar entre 0% e 100%')
+                    porcentagem_progresso = int(input('Qual a % do seu progresso atualmente?: '))
+
+                metas[opc3 - 1]['progresso'] = porcentagem_progresso
+
+                if metas[opc3 - 1]['progresso'] == 100:
+                    metas[opc3 - 1]['status'] = 'Meta Concluída'
+                else:
+                    metas[opc3 - 1]['status'] = 'Em Andamento'
+
+                print('=' * 40)
+                print('⚙️ATUALIZANDO...'.center(40))
+                print('=' * 40)
+                sleep(1.5)
+
+                print(f'Meta "{metas[opc3 - 1]["nome"]}" atualizada para {porcentagem_progresso}%!✅')
+                print('=' * 40)
+
+                input('Pressione ENTER para voltar...')
+
+# Remover a Meta da Lista
 
             elif op5 == '5':
                 break
-
-
-
 
 
     elif op == '5':

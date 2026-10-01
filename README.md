@@ -36,9 +36,13 @@ The project is being developed incrementally, with each module introducing new p
 - Track product status
 - Mark products as finished
 
-### 🚧 Planned
-
-- Goals management
+#### 🎯 Goals Management
+- Add new goals
+- View registered goals
+- Define goal category and deadline
+- Track goal progress
+- Automatically update goal status
+- Mark goals as completed when progress reaches 100%
 
 ## Technologies
 

@@ -60,6 +60,7 @@ LifeHub/
 ├── financeiro.py
 ├── funcoes.py
 ├── main.py
+├── metas.py
 ├── README.md
 ├── skincare.py
 └── wishlist.py

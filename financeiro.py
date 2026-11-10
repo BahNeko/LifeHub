@@ -41,6 +41,8 @@ def mostrar_lista_valores(titulo, lista, simbolo):
     print('-' * 40)
     print()
 
+# Função de execução do controle financeiro
+
 def executar_financeiro(receitas,gastos):
     while True:
         op2 = menu(

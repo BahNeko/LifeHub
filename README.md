@@ -58,6 +58,7 @@ LifeHub/
 │
 ├── main.py
 ├── funcoes.py
+├── financeiro.py
 ├── .gitignore
 └── README.md
 ```

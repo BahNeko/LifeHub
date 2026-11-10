@@ -56,11 +56,13 @@ The project is being developed incrementally, with each module introducing new p
 ```text
 LifeHub/
 │
-├── main.py
-├── funcoes.py
-├── financeiro.py
 ├── .gitignore
-└── README.md
+├── financeiro.py
+├── funcoes.py
+├── main.py
+├── README.md
+├── skincare.py
+└── wishlist.py
 ```
 ## Concepts Practiced
 
